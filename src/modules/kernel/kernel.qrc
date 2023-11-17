@@ -55,5 +55,8 @@
     <file>changelogs/linux61.html</file>
     <file>changelogs/linux62.html</file>
     <file>changelogs/linux63.html</file>
+    <file>changelogs/linux64.html</file>
+    <file>changelogs/linux65.html</file>
+    <file>changelogs/linux66.html</file>
   </qresource>
 </RCC>
