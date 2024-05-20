@@ -104,7 +104,8 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
         button.text = installStr;
     button.state = m_stateInstallButton | QStyle::State_Enabled;
     painter->setFont( buttonFont );
-    QApplication::style()->drawControl( QStyle::CE_PushButton, &button, painter );
+    if ( !isRunning )
+        QApplication::style()->drawControl( QStyle::CE_PushButton, &button, painter );
 
     // Draw changelog/information button
     buttonRect.moveTopRight( QPointF( option.rect.right() - padding,
@@ -319,7 +320,10 @@ KernelListViewDelegate::editorEvent( QEvent* event, QAbstractItemModel* model,
         m_stateInstallButton = QStyle::State_Raised;
         m_stateInfoButton = QStyle::State_Raised;
         if ( installButtonRect.contains( mouseEvent->pos() ) )
-            emit installButtonClicked( index );
+        {
+            if ( !qvariant_cast<bool>( index.data( KernelModel::IsRunningRole ) ) )
+                emit installButtonClicked( index );
+        }
         if ( infoButtonRect.contains( mouseEvent->pos() ) )
         {
             if ( QFile( changelog ).exists() )
