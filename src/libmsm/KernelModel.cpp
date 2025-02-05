@@ -367,7 +367,7 @@ KernelModel::getLtsKernels() const
 QStringList
 KernelModel::getRecommendedKernels() const
 {
-    return QStringList() << "linux54" << "linux510" << "linux515" << "linux61" << "linux66"; << "linux612";
+    return QStringList() << "linux54" << "linux510" << "linux515" << "linux61" << "linux66" << "linux612";
 }
 
 
