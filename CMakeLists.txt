@@ -1,7 +1,7 @@
 project(manjaro-settings-manager)
 SET(PROJECT_VERSION "0.5.8")
 
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 set(QT_MIN_VERSION "5.4.0")
 set(KF5_MIN_VERSION "5.31")
 find_package(ECM 1.4.0 REQUIRED NO_MODULE)
