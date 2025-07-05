@@ -29,6 +29,7 @@
 #include "TimeDatePage.h"
 #include "UsersPage.h"
 #include "PageWidget.h"
+#include "MsmMddPreviewWindow.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -44,6 +45,7 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
+#include <QPointer>
 
 
 namespace Ui
@@ -82,9 +84,12 @@ private:
     MhwdPage pageMhwd;
     TimeDatePage pageTimeDate;
     UsersPage pageUsers;
+    QPointer<MsmMddPreviewWindow> mdd_preview;
+
 
     void addPageWidget( PageWidget& page );
     void closeEvent( QCloseEvent* );
+    void resizeEvent(QResizeEvent*) override;
     void writePositionSettings();
 
 protected slots:
@@ -92,6 +97,8 @@ protected slots:
     void buttonShowAllSettings_clicked();
     void setApplyEnabled( PageWidget* page, bool enabled );
     void buttonApply_clicked();
+    void checkboxMdd_toggled(bool checked);
+    void buttonMddPreview_clicked();
     void closePageRequested( PageWidget* page );
 
 };

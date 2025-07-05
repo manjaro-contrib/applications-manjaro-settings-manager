@@ -1,0 +1,11 @@
+[Domain]
+Name=manjaro-settings-manager
+Name[x-test]=xxmanjaro-settings-managerxx
+Icon=kauth-example
+URL=https://github.com/manjaro/manjaro-settings-manager
+
+[org.manjaro.msm.mdd.save]
+Name=Save MDD Settings
+Description=Create and write MDD Setting file
+Policy=auth_admin
+Persistence=session

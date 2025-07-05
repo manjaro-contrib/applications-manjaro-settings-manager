@@ -25,6 +25,30 @@
 #include <QtCore/QSettings>
 #include <QtWidgets/QGraphicsOpacityEffect>
 #include <QTranslator>
+#include <QResizeEvent>
+#include <qcheckbox.h>
+#include <KAuth>
+#include <QDebug>
+
+bool load_mdd_advanced() {
+    QString configPath = "/etc/mdd.conf";
+    if (!QFileInfo::exists(configPath)) {
+        return false;
+    }
+
+    QSettings settings(configPath, QSettings::IniFormat);
+    settings.beginGroup("telemetry");
+    QVariant value = settings.value("advanced", false);
+    settings.endGroup();
+
+    // Handle possible string values (e.g., "true" or "false")
+    if (value.type() == QVariant::Type::String) {
+        QString strValue = value.toString().toLower();
+        return strValue == "true" || strValue == "1";
+    }
+    return value.toBool();
+}
+
 
 MsmWindow::MsmWindow( QWidget* parent ) :
     QMainWindow( parent ),
@@ -60,7 +84,12 @@ MsmWindow::MsmWindow( QWidget* parent ) :
              this, &MsmWindow::buttonShowAllSettings_clicked );
     connect( ui->buttonApply, &QPushButton::clicked,
              this, &MsmWindow::buttonApply_clicked );
+    connect(ui->checkboxMdd, &QCheckBox::toggled, this, &MsmWindow::checkboxMdd_toggled);
+    connect(ui->buttonMddPreview, &QPushButton::clicked, this, &MsmWindow::buttonMddPreview_clicked);
 
+    ui->checkboxMdd->setChecked(load_mdd_advanced());
+    ui->checkboxMdd->setToolTip("Support the Manjaro project by sharing anonymous information about your system.\n"
+        "You can then compare your system with others at metrics.manjaro.org.");
     ui->buttonAllSettings->setIcon( QIcon::fromTheme( "draw-arrow-back", QIcon( ":/images/resources/back.png" ) ) );
     ui->buttonApply->setIcon( QIcon::fromTheme( "dialog-ok-apply", QIcon( ":/images/resources/apply.png" ) ) );
     ui->buttonQuit->setIcon( QIcon::fromTheme( "gtk-quit", QIcon( ":/images/resources/quit.png" ) ) );
@@ -127,6 +156,8 @@ MsmWindow::listWidget_itemActivated( QListWidgetItem* current )
     ui->buttonAllSettings->setVisible( true );
     ui->buttonApply->setEnabled( false );
     ui->buttonApply->setVisible( item->page->getShowApplyButton() );
+    ui->checkboxMdd->setVisible(false);
+    ui->buttonMddPreview->setVisible(false);
 
     // Setup icon and titel
     ui->labelHeader->setText( item->page->getTitle() );
@@ -157,6 +188,8 @@ MsmWindow::buttonShowAllSettings_clicked()
     // Hide buttons
     ui->buttonAllSettings->setVisible( false );
     ui->buttonApply->setVisible( false );
+    ui->checkboxMdd->setVisible(true);
+    ui->buttonMddPreview->setVisible(true);
 
     // Show all settings
     ui->stackedWidget->setCurrentIndex( 0 );
@@ -179,6 +212,65 @@ MsmWindow::buttonApply_clicked()
     if ( !page )
         return;
     page->save();
+}
+
+
+void
+MsmWindow::checkboxMdd_toggled(bool checked)
+{
+    if (load_mdd_advanced() == checked) {
+        return;
+    }
+
+    KAuth::Action save_action( QLatin1String( "org.manjaro.msm.mdd.save" ) );
+    save_action.setHelperId( QLatin1String( "org.manjaro.msm.mdd" ) );
+
+    QVariantMap args;
+    args["advanced"] = checked;
+    save_action.setArguments( args );
+    save_action.setTimeout( 60000 );
+
+    auto job = save_action.execute();
+    if ( job->exec() ) {
+        qDebug() << "MDD config file succesfully written.";
+    } else {
+        qDebug() << "Failed to write MDD config file.";
+    }
+
+    ui->checkboxMdd->setChecked(load_mdd_advanced());
+}
+
+
+void
+MsmWindow::buttonMddPreview_clicked()
+{
+    if (mdd_preview) {
+        return;
+    }
+
+    mdd_preview = new MsmMddPreviewWindow(this);
+    mdd_preview->resize(width(), height());
+    mdd_preview->show();
+
+    auto process = new QProcess(mdd_preview);
+    process->setProcessChannelMode(QProcess::MergedChannels); // Merge stdout and stderr
+
+    auto got_output = false;
+    QObject::connect(process, &QProcess::readyReadStandardOutput, this, [process, this, &got_output]() {
+        auto output = process->readAllStandardOutput();
+        if (!got_output) {
+            mdd_preview->textEdit->clear();
+            got_output = true;
+        }
+        mdd_preview->textEdit->append(QString::fromUtf8(output));
+    });
+
+    QObject::connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+        [process](int, QProcess::ExitStatus) {
+            process->deleteLater();
+        });
+
+    process->start("/usr/bin/mdd", QStringList() << "--force-telemetry" << "--dry-run");
 }
 
 
@@ -233,4 +325,12 @@ void
 MsmWindow::closeEvent( QCloseEvent* )
 {
     writePositionSettings();
+}
+
+
+void MsmWindow::resizeEvent(QResizeEvent* event)
+{
+    if (mdd_preview) {
+        mdd_preview->resize(event->size());
+    }
 }

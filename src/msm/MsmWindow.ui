@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>897</width>
     <height>440</height>
    </rect>
   </property>
@@ -90,7 +90,6 @@
         <widget class="QLabel" name="labelHeader">
          <property name="font">
           <font>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -102,7 +101,7 @@
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -146,10 +145,10 @@
         <item>
          <widget class="ListWidget" name="listWidget">
           <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
           </property>
           <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
           </property>
           <property name="showDropIndicator" stdset="0">
            <bool>false</bool>
@@ -161,13 +160,13 @@
            </size>
           </property>
           <property name="movement">
-           <enum>QListView::Static</enum>
+           <enum>QListView::Movement::Static</enum>
           </property>
           <property name="spacing">
            <number>20</number>
           </property>
           <property name="viewMode">
-           <enum>QListView::IconMode</enum>
+           <enum>QListView::ViewMode::IconMode</enum>
           </property>
          </widget>
         </item>
@@ -179,6 +178,20 @@
     <item>
      <widget class="QWidget" name="widgetBottom" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QCheckBox" name="checkboxMdd">
+         <property name="text">
+          <string>Share system information</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonMddPreview">
+         <property name="text">
+          <string>Preview Data</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QPushButton" name="buttonAllSettings">
          <property name="minimumSize">
@@ -195,7 +208,7 @@
        <item>
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

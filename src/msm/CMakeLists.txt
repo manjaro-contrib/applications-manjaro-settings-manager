@@ -37,8 +37,19 @@ target_link_libraries(msm_bin
     Qt5::Core
     Qt5::Widgets)
 
+# Auth Helper
+add_executable(msm_mdd_authhelper MddAuthHelper.cpp)
+target_link_libraries(msm_mdd_authhelper
+    msm
+    Qt5::DBus
+    KF5::Auth)
+
 install(TARGETS msm_bin
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES
     manjaro-settings-manager.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+
+install(TARGETS msm_mdd_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+kauth_install_helper_files(msm_mdd_authhelper org.manjaro.msm.mdd root)
+kauth_install_actions(org.manjaro.msm.mdd msm_mdd.actions)
