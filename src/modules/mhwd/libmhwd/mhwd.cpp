@@ -1053,9 +1053,9 @@ bool mhwd::copyFile(const std::string source, const std::string destination, con
     in = fopen(source.c_str(), "r");
     out = fopen(destination.c_str(), "w");
 
-    if(in==NULL || !in)
+    if(!in) {
         return false;
-    else if(out==NULL || !out) {
+    } else if (!out) {
         fclose(in);
         return false;
     }
