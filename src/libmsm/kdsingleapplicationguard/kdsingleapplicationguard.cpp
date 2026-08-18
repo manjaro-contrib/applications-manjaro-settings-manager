@@ -11,7 +11,8 @@
 #include <QSharedMemory>
 #include <QSharedData>
 #include <QBasicTimer>
-#include <QTime>
+#include <QDateTime>
+#include <QElapsedTimer>
 
 #include <algorithm>
 #include <limits>
@@ -758,7 +759,7 @@ void KDSingleApplicationGuard::Private::create( const QStringList & arguments )
         }
 
         const int maxWaitMSecs = 1000 * 60; // stop waiting after 60 seconds
-        QTime waitTimer;
+        QElapsedTimer waitTimer;
         waitTimer.start();
 
         // lets wait till the other instance initialized the register
@@ -994,7 +995,7 @@ bool KDSingleApplicationGuard::event( QEvent * event )
 
 void KDSingleApplicationGuard::Private::poll() {
 
-    const quint32 now = QDateTime::currentDateTime().toTime_t();
+    const quint64 now = QDateTime::currentDateTime().currentSecsSinceEpoch();
 
     if ( primaryInstance == 0 ) {
         primaryInstance = q;
@@ -1122,13 +1123,13 @@ void KDSingleApplicationGuard::Private::poll() {
 
 #include <iostream>
 
-#include <QtCore/QTime>
+#include <QtCore/QElapsedTimer>
 #include <QtCore/QUuid>
 #include <QtTest/QSignalSpy>
 
 static void wait( int msec, QSignalSpy * spy=0, int expectedCount=INT_MAX )
 {
-    QTime t;
+    QElapsedTimer t;
     t.start();
     while ( ( !spy || spy->count() < expectedCount ) && t.elapsed() < msec )
     {
