@@ -94,7 +94,7 @@ LanguagePackagesCommon::load( Ui::PageLanguagePackages* ui )
 
     // Split language packages
     QStringList locales { LanguageCommon::enabledLocales( true ) };
-    qSort( locales );
+    std::sort( locales.begin(), locales.end() );
     foreach ( const QString locale, locales )
     {
         QStringList split = locale.split( "_", Qt::SkipEmptyParts );
