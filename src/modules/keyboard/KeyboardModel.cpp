@@ -82,7 +82,7 @@ Qt::ItemFlags
 KeyboardModel::flags( const QModelIndex& index ) const
 {
     if ( !index.isValid() )
-        return 0;
+        return Qt::ItemFlags();
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
