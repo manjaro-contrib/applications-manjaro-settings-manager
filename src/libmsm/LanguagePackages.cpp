@@ -93,8 +93,11 @@ LanguagePackages::languagePackages()
 const QList<QByteArray>
 LanguagePackages::intersect( const QList<QByteArray>& packages1, const QList<QByteArray>& packages2 )
 {
-    QSet<QByteArray> intersection = packages1.toSet().intersect( packages2.toSet() );
-    return intersection.toList();
+    QSet<QByteArray> p1Set ( packages1.constBegin(), packages1.constEnd() );
+    QSet<QByteArray> p2Set ( packages2.constBegin(), packages2.constEnd() );
+    QSet<QByteArray> intersect = p1Set.intersect( p2Set );
+
+    return QList<QByteArray> ( intersect.constBegin(), intersect.constEnd() );
 }
 
 
