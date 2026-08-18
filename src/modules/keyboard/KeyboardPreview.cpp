@@ -119,7 +119,7 @@ KeyBoardPreview::loadCodes()
     // Clear codes
     codes.clear();
 
-    QStringList list = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
+    QStringList list = QString( process.readAll() ).split( "\n", Qt::SkipEmptyParts );
 
     foreach ( QString line, list )
     {

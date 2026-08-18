@@ -120,7 +120,7 @@ AccountTypeDialog::checkSudoersFile()
 
     while ( !in.atEnd() )
     {
-        QString line = in.readLine().split( "#", QString::KeepEmptyParts ).first().remove( " " );
+        QString line = in.readLine().split( "#", Qt::KeepEmptyParts ).first().remove( " " );
 
         if ( line == "%" + m_adminGroup + "ALL=(ALL)ALL" )
         {

@@ -43,7 +43,7 @@ TimeZoneWidget::TimeZoneWidget( QWidget* parent ) :
     setMaximumSize( m_background.size() );
 
     // Zone images
-    QStringList zones = QString( ZONES ).split( " ", QString::SkipEmptyParts );
+    QStringList zones = QString( ZONES ).split( " ", Qt::SkipEmptyParts );
     for ( int i = 0; i < zones.size(); ++i )
         m_timeZoneImages.append( QImage( ":/images/timezone_" + zones.at( i ) + ".png" )
                                  .scaled( X_SIZE, Y_SIZE, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ) );

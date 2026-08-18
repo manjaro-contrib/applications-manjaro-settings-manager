@@ -57,7 +57,7 @@ SetKeyboardLayoutJob::findLegacyKeymap() const
         if ( line.isEmpty() || line.startsWith( '#' ) )
             continue;
 
-        QStringList mapping = line.split( '\t', QString::SkipEmptyParts );
+        QStringList mapping = line.split( '\t', Qt::SkipEmptyParts );
         if ( mapping.size() < 5 )
             continue;
 

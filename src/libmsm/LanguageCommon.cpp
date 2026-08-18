@@ -49,7 +49,7 @@ LanguageCommon::enabledLocales( bool clean )
 
         // Remove UTF-8, ISO-8895-15, etc
         QString lineString = QString::fromUtf8( line );
-        lineString =  lineString.split( " ", QString::SkipEmptyParts )
+        lineString =  lineString.split( " ", Qt::SkipEmptyParts )
                       .first()
                       .trimmed();
 
@@ -57,7 +57,7 @@ LanguageCommon::enabledLocales( bool clean )
         {
             // Remove .UTF-8, @euro ...
             locales << lineString.split( QRegularExpression( "[ .@]" ),
-                                         QString::SkipEmptyParts )
+                                         Qt::SkipEmptyParts )
                     .first()
                     .trimmed();
         }
@@ -103,7 +103,7 @@ LanguageCommon::supportedLocales( bool clean )
 
         // Remove UTF-8, ISO-8895-15, etc
         QString lineString = QString::fromUtf8( line );
-        lineString = lineString.split( " ", QString::SkipEmptyParts )
+        lineString = lineString.split( " ", Qt::SkipEmptyParts )
                      .first()
                      .trimmed();
 
@@ -113,7 +113,7 @@ LanguageCommon::supportedLocales( bool clean )
         {
             // Remove .UTF-8, @euro ...
             locales << lineString.split( QRegularExpression( "[ .@]" ),
-                                         QString::SkipEmptyParts )
+                                         Qt::SkipEmptyParts )
                     .first()
                     .trimmed();
         }

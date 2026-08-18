@@ -249,26 +249,26 @@ KeyboardModel::initLayout()
     QString layout;
     QString variant;
     QString model;
-    QStringList list = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
+    QStringList list = QString( process.readAll() ).split( "\n", Qt::SkipEmptyParts );
     for ( QString line: list )
     {
         line = line.trimmed();
         if ( line.startsWith( "layout" ) )
         {
-            QStringList split = line.split( ":", QString::SkipEmptyParts );
-            split = split.value( 1 ).trimmed().split( ",", QString::SkipEmptyParts );
+            QStringList split = line.split( ":", Qt::SkipEmptyParts );
+            split = split.value( 1 ).trimmed().split( ",", Qt::SkipEmptyParts );
             layout = split.value( 0 ).trimmed();
         }
         if ( line.startsWith( "variant" ) )
         {
-            QStringList split = line.split( ":", QString::SkipEmptyParts );
-            split = split.value( 1 ).trimmed().split( ",", QString::SkipEmptyParts );
+            QStringList split = line.split( ":", Qt::SkipEmptyParts );
+            split = split.value( 1 ).trimmed().split( ",", Qt::SkipEmptyParts );
             variant = split.value( 0 ).trimmed();
         }
         if ( line.startsWith( "model" ) )
         {
-            QStringList split = line.split( ":", QString::SkipEmptyParts );
-            split = split.value( 1 ).trimmed().split( ",", QString::SkipEmptyParts );
+            QStringList split = line.split( ":", Qt::SkipEmptyParts );
+            split = split.value( 1 ).trimmed().split( ",", Qt::SkipEmptyParts );
             model = split.value( 0 ).trimmed();
         }
     }

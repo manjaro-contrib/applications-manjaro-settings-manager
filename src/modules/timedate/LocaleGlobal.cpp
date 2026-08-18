@@ -75,9 +75,9 @@ LocaleGlobal::initLocales()
             QString line = in.readLine().trimmed();
 
             QStringList split = line
-                                .split( commentChar, QString::KeepEmptyParts )
+                                .split( commentChar, Qt::KeepEmptyParts )
                                 .first()
-                                .split( QRegExp( " (?=[^\"]*(\"[^\"]*\"[^\"]*)*$)" ), QString::SkipEmptyParts );
+                                .split( QRegularExpression( " (?=[^\"]*(\"[^\"]*\"[^\"]*)*$)" ), Qt::SkipEmptyParts );
 
             if ( split.size() < 2 )
                 continue;
@@ -114,17 +114,17 @@ LocaleGlobal::initLocations()
     QTextStream in( &file );
     while ( !in.atEnd() )
     {
-        QString line = in.readLine().trimmed().split( '#', QString::KeepEmptyParts ).first().trimmed();
+        QString line = in.readLine().trimmed().split( '#', Qt::KeepEmptyParts ).first().trimmed();
         if ( line.isEmpty() )
             continue;
 
-        QStringList list = line.split( QRegExp( "[\t ]" ), QString::SkipEmptyParts );
+        QStringList list = line.split( QRegularExpression( "[\t ]" ), Qt::SkipEmptyParts );
         if ( list.size() < 3 )
             continue;
 
         Location location;
-        QStringList timezone = list.at( 2 ).split( '/', QString::SkipEmptyParts );
-        int cooSplitPos = QString( list.at( 1 ) ).remove( 0, 1 ).indexOf( QRegExp( "[-+]" ) ) + 1;
+        QStringList timezone = list.at( 2 ).split( '/', Qt::SkipEmptyParts );
+        int cooSplitPos = QString( list.at( 1 ) ).remove( 0, 1 ).indexOf( QRegularExpression( "[-+]" ) ) + 1;
 
         if ( timezone.size() < 2 )
             continue;

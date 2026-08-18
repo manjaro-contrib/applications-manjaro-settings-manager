@@ -97,7 +97,7 @@ LanguagePackagesCommon::load( Ui::PageLanguagePackages* ui )
     qSort( locales );
     foreach ( const QString locale, locales )
     {
-        QStringList split = locale.split( "_", QString::SkipEmptyParts );
+        QStringList split = locale.split( "_", Qt::SkipEmptyParts );
         if ( split.size() != 2 )
             continue;
         QByteArray language = QString( split.at( 0 ) ).toUtf8();

@@ -84,7 +84,7 @@ LocaleAuthHelper::updateLocaleGen( QStringList locales )
             }
         }
 
-        if ( !found && !line.split( "#", QString::KeepEmptyParts ).first()
+        if ( !found && !line.split( "#", Qt::KeepEmptyParts ).first()
                 .trimmed().isEmpty() )
         {
             content.removeLast();

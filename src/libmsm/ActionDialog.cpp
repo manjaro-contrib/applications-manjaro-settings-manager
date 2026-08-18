@@ -142,7 +142,7 @@ ActionDialog::startJob()
              [this] ( const QVariantMap &data )
     {
         QString output = data.value( "Data" ).toString();
-        foreach ( auto line, output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
+        foreach ( auto line, output.split( QRegularExpression( "[\r\n]" ),Qt::SkipEmptyParts ) )
         {
             if ( line != m_lastMessage )
             {

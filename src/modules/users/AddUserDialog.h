@@ -25,8 +25,8 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QStringList>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 
 

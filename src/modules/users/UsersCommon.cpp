@@ -286,9 +286,9 @@ UsersCommon::Users()
     while ( !in.atEnd() )
     {
         QStringList split = in.readLine()
-                            .split( "#", QString::KeepEmptyParts )
+                            .split( "#", Qt::KeepEmptyParts )
                             .first()
-                            .split( ":", QString::KeepEmptyParts );
+                            .split( ":", Qt::KeepEmptyParts );
 
         if ( split.size() < 7 )
             continue;
@@ -326,16 +326,16 @@ UsersCommon::Groups()
     while ( !in.atEnd() )
     {
         QStringList split = in.readLine()
-                            .split( "#", QString::KeepEmptyParts )
+                            .split( "#", Qt::KeepEmptyParts )
                             .first()
-                            .split( ":", QString::KeepEmptyParts );
+                            .split( ":", Qt::KeepEmptyParts );
 
         if ( split.size() < 4 )
             continue;
 
         Group group;
         group.name = split.at( 0 );
-        group.members = split.at( 3 ).split( ",", QString::SkipEmptyParts );
+        group.members = split.at( 3 ).split( ",", Qt::SkipEmptyParts );
 
         if ( group.name.isEmpty() )
             continue;

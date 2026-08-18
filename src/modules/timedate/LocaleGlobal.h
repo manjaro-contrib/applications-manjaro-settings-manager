@@ -31,7 +31,7 @@
 #include <QList>
 #include <QHash>
 #include <QMap>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDebug>
 
 #define LOCALESDIR "/usr/share/i18n/locales"

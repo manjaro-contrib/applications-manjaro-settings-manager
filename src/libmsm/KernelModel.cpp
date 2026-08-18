@@ -217,7 +217,7 @@ KernelModel::getAvailablePackages() const
     QString result = process.readAllStandardOutput();
 
     QHash<QString, QString> packages;
-    foreach ( const QString line, result.split( "\n", QString::SkipEmptyParts ) )
+    foreach ( const QString line, result.split( "\n", Qt::SkipEmptyParts ) )
     {
         if ( line.isEmpty() )
             continue;
@@ -245,7 +245,7 @@ KernelModel::getInstalledPackages() const
     QString result = process.readAll();
 
     QHash<QString, QString> packages;
-    foreach ( const QString line, result.split( "\n", QString::SkipEmptyParts ) )
+    foreach ( const QString line, result.split( "\n", Qt::SkipEmptyParts ) )
     {
         if ( line.isEmpty() )
             continue;
@@ -348,7 +348,7 @@ KernelModel::getRunningKernel() const
     uname.close();
 
     Kernel kernel;
-    QStringList aux = result.split( ".", QString::SkipEmptyParts );
+    QStringList aux = result.split( ".", Qt::SkipEmptyParts );
     QString version = QString( "%1.%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
     if ( result.contains( "-rt" ) )
         version.append( "rt" );

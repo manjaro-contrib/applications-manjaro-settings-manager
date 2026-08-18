@@ -79,8 +79,8 @@ void AddUserDialog::buttonCreate_clicked()
     QString password = ui->textBoxPassword->text();
 
     // Check username
-    QRegExp rx( "^[a-z][-a-z0-9_]*\\$" );
-    QRegExpValidator val( rx );
+    QRegularExpression rx( "^[a-z][-a-z0-9_]*\\$" );
+    QRegularExpressionValidator val( rx );
     int pos = -1;
 
     if ( val.validate( username, pos ) == QValidator::Invalid )
