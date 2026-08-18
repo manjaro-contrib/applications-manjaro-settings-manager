@@ -111,7 +111,7 @@ TimeDateCommon::updateUi( Ui::PageTimeDate* ui, TimeDateService* timeDateService
     if ( timeZone.isValid() )
     {
         ui->timeZoneLabel_2->setText( currentTimeZone );
-        ui->countryLabel_2->setText( QLocale::countryToString( timeZone.country() ) );
+        ui->countryLabel_2->setText( QLocale::territoryToString( timeZone.territory() ) );
 
         QIcon yesIcon = QIcon();
         yesIcon.addFile( ":/images/yes.svg", QSize( 16, 16 ) );
