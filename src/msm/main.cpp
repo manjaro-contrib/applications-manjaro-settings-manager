@@ -65,14 +65,21 @@ int main( int argc, char* argv[] )
     if ( parser.isSet( moduleOption ) )
         app.setStartModule( parser.value( moduleOption ) );
 
+    
     QTranslator qtTranslator;
-    qtTranslator.load( "qt_" + QLocale::system().name(),
-                       QLibraryInfo::location( QLibraryInfo::TranslationsPath ) );
-    app.installTranslator( &qtTranslator );
+    QString qtTranslationPath =  QLibraryInfo::path( QLibraryInfo::TranslationsPath );
+    if ( qtTranslator.load( "qt_" + QLocale::system().name(), qtTranslationPath ) ) {
+        app.installTranslator( &qtTranslator );
+    } else {
+        qDebug() << "Cannot load QT translations";
+    }
 
     QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    app.installTranslator( &appTranslator );
+    if ( appTranslator.load( ":/translations/msm_" + QLocale::system().name() ) ) {
+        app.installTranslator( &appTranslator );
+    } else {
+        qDebug() << "Cannot load app translations";
+    }
 
     app.init();
     return app.exec();

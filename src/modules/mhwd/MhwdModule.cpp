@@ -40,8 +40,11 @@ MhwdModule::MhwdModule( QObject* parent, const KPluginMetaData &data ) :
 {
     Q_INIT_RESOURCE( translations );
     QTranslator* appTranslator = new QTranslator;
-    appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( appTranslator );
+    if ( appTranslator->load( ":/translations/msm_" + QLocale::system().name() ) ) {
+        qApp->installTranslator( appTranslator );
+    } else {
+        qDebug() << "Cannot load translations";
+    }
 
     KAboutData* aboutData = new KAboutData( MhwdCommon::getName(),
                                             MhwdCommon::getTitle(),

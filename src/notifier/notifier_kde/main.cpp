@@ -46,8 +46,11 @@ int main( int argc, char* argv[] )
     parser.process( app );
 
     QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    app.installTranslator( &appTranslator );
+    if ( appTranslator.load( ":/translations/msm_" + QLocale::system().name() ) ) {
+        app.installTranslator( &appTranslator );
+    } else {
+        qDebug() << "Cannot load translations";
+    }
 
     // Workaround to enable to call the dialog to change settings with a command argument
     // because if the application is running and tray icon is hidden there is no way to change settings.

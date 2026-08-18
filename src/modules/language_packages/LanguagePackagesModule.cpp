@@ -39,8 +39,11 @@ LanguagePackagesModule::LanguagePackagesModule( QObject* parent, const KPluginMe
     Q_INIT_RESOURCE( language_packages );
     Q_INIT_RESOURCE( translations );
     QTranslator* appTranslator = new QTranslator;
-    appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( appTranslator );
+    if ( appTranslator->load( ":/translations/msm_" + QLocale::system().name() ) ) {
+        qApp->installTranslator( appTranslator );
+    } else {
+        qDebug() << "Cannot load translations";
+    }
 
     KAboutData* aboutData = new KAboutData( LanguagePackagesCommon::getName(),
                                             LanguagePackagesCommon::getTitle(),
