@@ -21,6 +21,7 @@
 #include "TimeDateService.h"
 
 #include <QtCore/QDebug>
+#include <QtCore/QTimeZone>
 
 TimeDateService::TimeDateService( QObject* parent ) :
     QObject( parent )
@@ -50,7 +51,7 @@ TimeDateService::utcDateTime()
 {
     QDateTime aux;
     aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "TimeUSec" ) ).toLongLong() / 1000 );
-    aux.setTimeSpec( Qt::LocalTime );
+    aux.setTimeZone( QTimeZone::LocalTime );
     return aux.toUTC();
 }
 
@@ -60,7 +61,7 @@ TimeDateService::rtcDateTime()
 {
     QDateTime aux;
     aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "RTCTimeUSec" ) ).toLongLong() / 1000 );
-    aux.setTimeSpec( Qt::LocalTime );
+    aux.setTimeZone( QTimeZone::LocalTime );
     return aux.toUTC();
 }
 
