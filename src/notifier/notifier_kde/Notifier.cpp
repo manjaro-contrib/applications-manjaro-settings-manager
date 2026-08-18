@@ -26,7 +26,7 @@
 #include "KernelModel.h"
 #include "PacmanUtils.h"
 
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QMenu>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
