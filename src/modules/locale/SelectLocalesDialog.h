@@ -23,7 +23,7 @@
 
 #include "SupportedLocalesModel.h"
 
-#include <KF5/KItemModels/KSelectionProxyModel>
+#include <KF6/KItemModels/KSelectionProxyModel>
 
 #include <QtWidgets/QDialog>
 #include <QtCore/QSortFilterProxyModel>

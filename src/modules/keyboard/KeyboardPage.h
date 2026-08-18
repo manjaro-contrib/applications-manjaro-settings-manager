@@ -25,7 +25,7 @@
 #include "KeyboardPreview.h"
 #include "PageWidget.h"
 
-#include <KF5/KItemModels/KSelectionProxyModel>
+#include <KF6/KItemModels/KSelectionProxyModel>
 
 
 namespace Ui
