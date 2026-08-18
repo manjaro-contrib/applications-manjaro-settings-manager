@@ -13,7 +13,6 @@
 
 #include <algorithm>
 
-template <typename T> class QVector;
 class QCoreApplication;
 
 class DLLEXPORT KDSingleApplicationGuard : public QObject
