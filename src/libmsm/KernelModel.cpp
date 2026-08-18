@@ -38,7 +38,7 @@ KernelModel::update()
     QHash<QString, QString> availableKernelPackages = getAvailablePackages();
 
     QHash<QString, QString> allKernelPackages;
-    allKernelPackages.unite( installedKernelPackages );
+    allKernelPackages.insert( installedKernelPackages );
     QHashIterator<QString, QString> i( availableKernelPackages );
     while ( i.hasNext() )
     {
