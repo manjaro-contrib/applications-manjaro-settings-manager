@@ -28,7 +28,7 @@
 
 
 template< typename T >
-struct delete_ptr : public std::unary_function<bool,T> {
+struct delete_ptr {
     bool operator()(T *ptr) const {
         if (ptr != NULL)
             delete ptr;
