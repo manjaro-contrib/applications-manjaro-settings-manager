@@ -64,7 +64,7 @@ public Q_SLOTS:
     void killOtherInstances();
 
 protected:
-    /*! \reimp */ bool event( QEvent * event );
+    /*! \reimp */ bool event( QEvent * event ) override;
 
 private:
 #ifndef Q_WS_WIN

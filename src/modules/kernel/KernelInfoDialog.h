@@ -28,7 +28,7 @@ class KernelInfoDialog : public QDialog
     Q_OBJECT
 
 public slots:
-    int exec();
+    int exec() override;
 
 public:
     explicit KernelInfoDialog( QWidget* parent = 0 );

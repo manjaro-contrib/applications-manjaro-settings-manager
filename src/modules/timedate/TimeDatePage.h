@@ -36,8 +36,8 @@ class TimeDatePage : public PageWidget
 public:
     explicit TimeDatePage( QWidget* parent = 0 );
     ~TimeDatePage();
-    void load();
-    void save();
+    void load() override;
+    void save() override;
 
 private:
     Ui::PageTimeDate* ui;

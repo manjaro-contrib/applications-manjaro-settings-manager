@@ -41,21 +41,21 @@ public:
     explicit SupportedLocalesModel( QObject* parent = 0 );
     ~SupportedLocalesModel();
 
-    QVariant data( const QModelIndex& index, int role ) const;
-    Qt::ItemFlags flags( const QModelIndex& index ) const;
+    QVariant data( const QModelIndex& index, int role ) const override;
+    Qt::ItemFlags flags( const QModelIndex& index ) const override;
     QVariant headerData( int section, Qt::Orientation orientation,
-                         int role = Qt::DisplayRole ) const;
+                         int role = Qt::DisplayRole ) const override;
     QModelIndex index( int row, int column,
-                       const QModelIndex& parent = QModelIndex() ) const;
-    QModelIndex parent( const QModelIndex& index ) const;
-    int rowCount( const QModelIndex& parent = QModelIndex() ) const;
-    int columnCount( const QModelIndex& parent = QModelIndex() ) const;
+                       const QModelIndex& parent = QModelIndex() ) const override;
+    QModelIndex parent( const QModelIndex& index ) const override;
+    int rowCount( const QModelIndex& parent = QModelIndex() ) const override;
+    int columnCount( const QModelIndex& parent = QModelIndex() ) const override;
 
     static icu::UnicodeString qStringToUnicodeString( const QString& sourceStr );
     static QString unicodeStringToQString( const icu::UnicodeString& sourceStr );
 
 protected:
-    QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
     void init( SupportedLocalesItem* parent );

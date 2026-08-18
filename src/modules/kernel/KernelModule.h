@@ -51,17 +51,17 @@ public:
     /**
      * Overloading the KCModule load() function.
      */
-    void load();
+    void load() override;
 
     /**
      * Overloading the KCModule save() function.
      */
-    void save();
+    void save() override;
 
     /**
      * Overloading the KCModule defaults() function.
      */
-    void defaults();
+    void defaults() override;
 
 private:
     Ui::PageKernel* ui;

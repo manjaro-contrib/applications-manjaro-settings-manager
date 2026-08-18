@@ -41,7 +41,7 @@ public:
     explicit SelectLocalesDialog( QWidget* parent = 0 );
     ~SelectLocalesDialog();
 
-    int exec();
+    int exec() override;
     bool localeAdded();
     QString getLocale();
 

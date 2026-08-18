@@ -40,8 +40,8 @@ public:
     explicit LocalePage( QWidget* parent = 0 );
     ~LocalePage();
 
-    void load();
-    void save();
+    void load() override;
+    void save() override;
     void defaults();
 
 private:

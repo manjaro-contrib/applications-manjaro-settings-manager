@@ -30,7 +30,7 @@ public:
 
 protected:
     void enterEvent( QEvent* );
-    void leaveEvent( QEvent* );
+    void leaveEvent( QEvent* ) override;
 };
 
 #endif // FLATBUTTON_H

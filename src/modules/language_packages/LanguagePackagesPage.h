@@ -46,7 +46,7 @@ public:
     explicit LanguagePackagesPage( QWidget* parent = 0 );
     ~LanguagePackagesPage();
 
-    void load();
+    void load() override;
 
 private:
     Ui::PageLanguagePackages* ui;

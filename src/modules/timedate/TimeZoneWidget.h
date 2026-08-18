@@ -57,8 +57,8 @@ private:
 
     QPoint getLocationPosition( double longitude, double latitude );
 
-    void paintEvent( QPaintEvent* event );
-    void mousePressEvent( QMouseEvent* event );
+    void paintEvent( QPaintEvent* event ) override;
+    void mousePressEvent( QMouseEvent* event ) override;
 };
 
 #endif // TIMEZONEWIDGET_H

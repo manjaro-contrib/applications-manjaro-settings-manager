@@ -37,7 +37,7 @@ public:
     explicit MhwdPage( QWidget* parent = 0 );
     ~MhwdPage();
 
-    void load();
+    void load() override;
 
 private:
     Ui::PageMhwd* ui;

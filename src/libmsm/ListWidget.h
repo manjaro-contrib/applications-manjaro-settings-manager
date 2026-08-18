@@ -43,8 +43,8 @@ private:
     QListWidgetItem* m_item;
 
 protected:
-    virtual void paint ( QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index ) const;
-    virtual QSize sizeHint ( const QStyleOptionViewItem& option, const QModelIndex& index ) const;
+    virtual void paint ( QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index ) const override;
+    virtual QSize sizeHint ( const QStyleOptionViewItem& option, const QModelIndex& index ) const override;
 };
 
 
@@ -61,7 +61,7 @@ signals:
     void resized();
 
 protected:
-    void resizeEvent( QResizeEvent* e );
+    void resizeEvent( QResizeEvent* e ) override;
 
 };
 

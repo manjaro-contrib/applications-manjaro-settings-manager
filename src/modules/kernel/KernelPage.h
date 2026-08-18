@@ -36,7 +36,7 @@ class KernelPage : public PageWidget
 public:
     explicit KernelPage( QWidget* parent = 0 );
     ~KernelPage();
-    void load();
+    void load() override;
 
 private:
     Ui::PageKernel* ui;

@@ -51,7 +51,7 @@ public:
     using QDialog::exec;
 
 public slots:
-    virtual int exec();
+    virtual int exec() override;
 
 private:
     Ui::AddUserDialog* ui;

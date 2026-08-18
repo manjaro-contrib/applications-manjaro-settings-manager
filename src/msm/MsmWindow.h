@@ -84,7 +84,7 @@ private:
     UsersPage pageUsers;
 
     void addPageWidget( PageWidget& page );
-    void closeEvent( QCloseEvent* );
+    void closeEvent( QCloseEvent* ) override;
     void writePositionSettings();
 
 protected slots:

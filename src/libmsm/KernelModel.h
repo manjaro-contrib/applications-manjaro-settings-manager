@@ -52,15 +52,15 @@ public:
 
     void update();
     void add( const Kernel& kernel );
-    int rowCount( const QModelIndex& parent = QModelIndex() ) const;
-    QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
+    int rowCount( const QModelIndex& parent = QModelIndex() ) const override;
+    QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
     bool remove( int position, int rows, const QModelIndex& parent );
     Kernel latestInstalledKernel();
     QList<Kernel> newerKernels( const Kernel& auxKernel );
     QList<Kernel> unsupportedKernels() const;
 
 protected:
-    QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
     QList<Kernel> m_kernels;
@@ -81,7 +81,7 @@ public:
     KernelSortFilterProxyModel( QObject* parent = 0 );
 
 protected:
-    bool lessThan( const QModelIndex& left, const QModelIndex& right ) const;
+    bool lessThan( const QModelIndex& left, const QModelIndex& right ) const override;
 };
 
 #endif // KERNELMODEL_H

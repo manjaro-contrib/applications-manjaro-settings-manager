@@ -42,8 +42,8 @@ public:
     explicit KeyboardPage( QWidget* parent = 0 );
     ~KeyboardPage();
 
-    void load();
-    void save();
+    void load() override;
+    void save() override;
 
 private:
     Ui::PageKeyboard* ui;

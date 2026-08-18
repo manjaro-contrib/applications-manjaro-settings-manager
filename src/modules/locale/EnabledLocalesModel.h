@@ -62,9 +62,9 @@ public:
     void init();
     void updateSystemLocales();
 
-    int rowCount( const QModelIndex& parent ) const;
-    int columnCount( const QModelIndex& parent ) const;
-    QVariant data( const QModelIndex& index, int role ) const;
+    int rowCount( const QModelIndex& parent ) const override;
+    int columnCount( const QModelIndex& parent ) const override;
+    QVariant data( const QModelIndex& index, int role ) const override;
     bool insertLocale( int row, int count, const QString& localeCode );
     bool removeLocale( int row, int count );
 
@@ -147,7 +147,7 @@ public:
     static QString unicodeStringToQString( const icu::UnicodeString& sourceStr );
 
 protected:
-    QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
     QStringList m_locales;

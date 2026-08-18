@@ -37,7 +37,7 @@ public:
     explicit UsersPage( QWidget* parent = 0 );
     ~UsersPage();
 
-    void load();
+    void load() override;
 
 private:
     class ListWidgetItem : public QListWidgetItem
