@@ -32,10 +32,10 @@
 #include <QtDebug>
 
 K_PLUGIN_FACTORY( MsmMhwdFactory,
-                  registerPlugin<MhwdModule>( MhwdCommon::getName() ); )
+                  registerPlugin<MhwdModule>(); )
 
-MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+MhwdModule::MhwdModule( QObject* parent, const KPluginMetaData &data ) :
+    KCModule( parent, data ),
     ui( new Ui::PageMhwd )
 {
     Q_INIT_RESOURCE( translations );
@@ -48,14 +48,14 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
                                             PROJECT_VERSION,
                                             MhwdCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
+                                            "(c) 2014 - 2026 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
-    ui->setupUi( this );
+    ui->setupUi( this->widget() );
 
     ui->treeWidget->setContextMenuPolicy( Qt::CustomContextMenu );
     ui->treeWidget->setColumnWidth( 0, 450 );

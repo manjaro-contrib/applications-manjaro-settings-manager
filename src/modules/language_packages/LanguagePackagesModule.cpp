@@ -30,10 +30,10 @@
 #include <QtCore/QTranslator>
 
 K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
-                  registerPlugin<LanguagePackagesModule>( LanguagePackagesCommon::getName() ); )
+                  registerPlugin<LanguagePackagesModule>(); )
 
-LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+LanguagePackagesModule::LanguagePackagesModule( QObject* parent, const KPluginMetaData &data ) :
+    KCModule( parent, data ),
     ui( new Ui::PageLanguagePackages )
 {
     Q_INIT_RESOURCE( language_packages );
@@ -47,7 +47,7 @@ LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantL
                                             PROJECT_VERSION,
                                             LanguagePackagesCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
+                                            "(c) 2014 - 2026 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "rbuldo@gmail.com" ) );
     aboutData->addAuthor( "Roland Singer",
@@ -56,7 +56,7 @@ LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantL
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
-    ui->setupUi( this );
+    ui->setupUi( this->widget() );
 
     ui->treeWidgetAvailable->setColumnWidth( 0, 250 );
     ui->treeWidgetAvailable->setColumnWidth( 1, 300 );

@@ -39,10 +39,10 @@ public:
     /**
      * Constructor.
      *
-     * @param parent Parent widget of the module
-     * @param args Arguments for the module
+     * @param parent Parent object of the module
+     * @param data Data for the module
      */
-    explicit PageKernel( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit PageKernel( QObject* parent, const KPluginMetaData &data );
     /**
      * Destructor.
      */

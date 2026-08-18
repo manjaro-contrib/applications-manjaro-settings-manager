@@ -29,9 +29,9 @@
 #include <QTranslator>
 
 K_PLUGIN_FACTORY( MsmKernelFactory,
-                  registerPlugin<PageKernel>( KernelCommon::getName() ); )
-PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+                  registerPlugin<PageKernel>(); )
+PageKernel::PageKernel( QObject* parent, const KPluginMetaData &data ) :
+    KCModule( parent, data ),
     ui( new Ui::PageKernel ),
     m_kernelModel( new KernelModel )
 {
@@ -45,14 +45,14 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
                                             PROJECT_VERSION,
                                             KernelCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2021 Manjaro Settings Manager developers" );
+                                            "(c) 2014 - 2026 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
-    ui->setupUi( this );
+    ui->setupUi( this->widget() );
 
     // Setup ListView
     KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );

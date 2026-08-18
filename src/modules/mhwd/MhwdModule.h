@@ -36,10 +36,10 @@ public:
     /**
      * Constructor.
      *
-     * @param parent Parent widget of the module
-     * @param args Arguments for the module
+     * @param parent Parent object of the module
+     * @param data Arguments for the module
      */
-    explicit MhwdModule( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit MhwdModule( QObject* parent, const KPluginMetaData &data );
     /**
      * Destructor.
      */
