@@ -34,41 +34,41 @@ NotifierSettingsDialog::NotifierSettingsDialog( QWidget* parent ) :
     ui->buttonApply->setIcon(QIcon::fromTheme("dialog-ok-apply"));
     ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit"));
 
-    connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+    connect( ui->checkUnsupportedKernelBox, &QCheckBox::checkStateChanged,
              this, &NotifierSettingsDialog::unsupportedKernelStateBoxChanged );
-    connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
+    connect( ui->checkNewKernelBox, &QCheckBox::checkStateChanged,
              this, &NotifierSettingsDialog::newKernelStateBoxChanged );
     connect( ui->buttonApply, &QPushButton::clicked,
              this, &NotifierSettingsDialog::buttonApply_clicked );
     connect( ui->buttonQuit, &QPushButton::clicked,
              this, &NotifierSettingsDialog::buttonQuit_clicked );
 
-    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
+    connect( ui->checkLanguagePackage, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
     } );
-    connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+    connect( ui->checkUnsupportedKernelBox, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
     } );
-    connect( ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
+    connect( ui->checkUnsupportedKernelRunningBox, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
     } );
-    connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
+    connect( ui->checkNewKernelBox, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
     } );
-    connect( ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
+    connect( ui->checkNewKernelLtsBox, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
     } );
-    connect( ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
+    connect( ui->checkNewKernelRecommendedBox, &QCheckBox::checkStateChanged,
              [=] ( )
     {
         ui->buttonApply->setEnabled(true);
