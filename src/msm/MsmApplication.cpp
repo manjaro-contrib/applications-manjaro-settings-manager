@@ -21,7 +21,7 @@
 #include "MsmApplication.h"
 #include "MsmWindow.h"
 
-#include <QtWidgets/QDesktopWidget>
+#include <QScreen>
 
 #include <QDebug>
 
@@ -50,7 +50,7 @@ MsmApplication::init()
     m_mainwindow = new MsmWindow();
 
     m_mainwindow->move(
-        this->desktop()->availableGeometry().center() - m_mainwindow->rect().center()
+        this->primaryScreen()->availableGeometry().center() - m_mainwindow->rect().center()
     );
     if ( m_startModule != nullptr )
         m_mainwindow->loadModule( m_startModule );

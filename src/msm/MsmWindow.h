@@ -39,7 +39,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QListWidgetItem>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QFile>
 #include <QTextStream>
 #include <QDir>

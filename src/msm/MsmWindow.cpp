@@ -33,7 +33,7 @@ MsmWindow::MsmWindow( QWidget* parent ) :
     ui->setupUi( this );
 
     /* Center the window */
-    move( qApp->desktop()->availableGeometry().center() - rect().center() );
+    move( qApp->primaryScreen()->availableGeometry().center() - rect().center() );
 
     readPositionSettings();
 
