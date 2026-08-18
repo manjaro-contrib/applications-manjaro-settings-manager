@@ -59,11 +59,11 @@ set(TIMEDATE_SRCS
 set(TIMEDATE_UI
     ui/PageTimeDate.ui
     ui/TimeZoneDialog.ui)
-qt5_wrap_ui(TIMEDATE_SRCS ${TIMEDATE_UI})
+qt6_wrap_ui(TIMEDATE_SRCS ${TIMEDATE_UI})
 
 set(TIMEDATE_RESOURCES
     timedate.qrc)
-QT5_ADD_RESOURCES (TIMEDATE_SRCS ${TIMEDATE_RESOURCES})
+QT6_ADD_RESOURCES (TIMEDATE_SRCS ${TIMEDATE_RESOURCES})
 
 ## KCM Module
 #set(TIMEDATE_KCM_SRCS
@@ -73,10 +73,10 @@ QT5_ADD_RESOURCES (TIMEDATE_SRCS ${TIMEDATE_RESOURCES})
 #target_compile_definitions(msm_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 #target_link_libraries(msm_timedate
 #    msm
-#    Qt5::DBus
-#    Qt5::Widgets
-#    KF5::CoreAddons
-#    KF5::ConfigWidgets)
+#    Qt6::DBus
+#    Qt6::Widgets
+#    KF6::CoreAddons
+#    KF6::ConfigWidgets)
 
 #install(TARGETS msm_timedate DESTINATION ${PLUGIN_INSTALL_DIR})
 #install(FILES msm_timedate.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -89,4 +89,4 @@ add_library(msm_page_timedate STATIC ${TIMEDATE_PAGE_SRCS})
 target_compile_definitions(msm_page_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_timedate
     msm
-    Qt5::DBus)
+    Qt6::DBus)

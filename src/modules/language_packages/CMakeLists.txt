@@ -12,7 +12,7 @@ set(LANGUAGE_PACKAGES_SRCS
 
 set(LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
-qt5_wrap_ui(LANGUAGE_PACKAGES_SRCS ${LANGUAGE_PACKAGES_UI})
+qt6_wrap_ui(LANGUAGE_PACKAGES_SRCS ${LANGUAGE_PACKAGES_UI})
 
 # KCM Module
 set(LANGUAGE_PACKAGES_KCM_SRCS
@@ -23,9 +23,10 @@ add_library(msm_language_packages MODULE ${LANGUAGE_PACKAGES_KCM_SRCS})
 target_compile_definitions(msm_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_language_packages
     msm
-    Qt5::Widgets
-    KF5::ConfigWidgets
-    KF5::CoreAddons)
+    Qt6::Widgets
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::KCMUtils)
 
 install(TARGETS msm_language_packages DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_language_packages.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -43,7 +44,7 @@ target_link_libraries(msm_page_language_packages
 # Auth Helper
 add_executable(msm_language_packages_authhelper LanguagePackagesAuthHelper.cpp)
 target_link_libraries(msm_language_packages_authhelper
-    KF5::Auth)
+    KF6::AuthCore)
 
 install(TARGETS msm_language_packages_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_language_packages_authhelper org.manjaro.msm.languagepackages root)

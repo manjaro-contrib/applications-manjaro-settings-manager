@@ -26,11 +26,11 @@ set(USERS_UI
     ui/AddUserDialog.ui
     ui/ChangePasswordDialog.ui
     ui/PageUsers.ui)
-qt5_wrap_ui(USERS_SRCS ${USERS_UI})
+qt6_wrap_ui(USERS_SRCS ${USERS_UI})
 
 set(USERS_RESOURCES
     users.qrc)
-QT5_ADD_RESOURCES (USERS_SRCS ${USERS_RESOURCES})
+QT6_ADD_RESOURCES (USERS_SRCS ${USERS_RESOURCES})
 
 ## KCM Module
 #set(USERS_KCM_SRCS
@@ -41,9 +41,9 @@ QT5_ADD_RESOURCES (USERS_SRCS ${USERS_RESOURCES})
 #target_compile_definitions(msm_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 #target_link_libraries(msm_users
 #    msm
-#    Qt5::Widgets
-#    KF5::ConfigWidgets
-#    KF5::CoreAddons)
+#    Qt6::Widgets
+#    KF6::ConfigWidgets
+#    KF6::CoreAddons)
 
 #install(TARGETS msm_users DESTINATION ${PLUGIN_INSTALL_DIR})
 #install(FILES msm_users.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -61,7 +61,7 @@ target_link_libraries(msm_page_users
 # Auth Helper
 add_executable(msm_users_authhelper UsersAuthHelper.cpp)
 target_link_libraries(msm_users_authhelper
-    KF5::Auth)
+    KF6::AuthCore)
 
 install(TARGETS msm_users_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_users_authhelper org.manjaro.msm.users root)

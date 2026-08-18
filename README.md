@@ -32,15 +32,16 @@ You can also use the provided PKGBUILD to compile and install it.
 
 ### DEPENDENCIES
 
-* Qt5 >= 5.3.0
-* KF5 >= 5.29
-* KF5CoreAddons
-* KF5Auth
-* KF5ConfigWidgets
-* KF5ItemModels
-* KF5Notifications
-* KF5KCMUtils
-* KF5IconThemes
+* Qt6 >= 6.4.0
+* KF6 >= 6.28
+* KF6CoreAddons
+* KF6Auth
+* KF6ConfigWidgets
+* KF6ItemModels
+* KF6Notifications
+* KF6StatusNotifierItem
+* KF6KCMUtils
+* KF6IconThemes
 
 
 ### EXECUTION
@@ -48,7 +49,7 @@ You can also use the provided PKGBUILD to compile and install it.
 Now the build is complete and you can run it using `msm` command in terminal.
 
 It will also show up the new kcm modules in kde's systemsettings or issuing the command:
-`kcmshell5 msm_{kernel,keyboard,language_packages,locale,mhwd,notifications,timedate,users}`
+`kcmshell6 msm_{kernel,keyboard,language_packages,locale,mhwd,notifications,timedate,users}`
 
 
 ### RESOURCES

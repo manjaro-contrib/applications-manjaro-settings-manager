@@ -17,11 +17,11 @@ set(KEYBOARD_SRCS
 
 set(KEYBOARD_UI
     ui/PageKeyboard.ui)
-qt5_wrap_ui(KEYBOARD_SRCS ${KEYBOARD_UI})
+qt6_wrap_ui(KEYBOARD_SRCS ${KEYBOARD_UI})
 
 set(KEYBOARD_RESOURCES
     keyboard.qrc)
-QT5_ADD_RESOURCES (KEYBOARD_SRCS ${KEYBOARD_RESOURCES})
+QT6_ADD_RESOURCES (KEYBOARD_SRCS ${KEYBOARD_RESOURCES})
 
 ## KCM Module
 #set(KEYBOARD_KCM_SRCS
@@ -31,9 +31,9 @@ QT5_ADD_RESOURCES (KEYBOARD_SRCS ${KEYBOARD_RESOURCES})
 #target_compile_definitions(msm_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 #target_link_libraries(msm_keyboard
 #    msm
-#    KF5::ConfigWidgets
-#    KF5::CoreAddons
-#    KF5::ItemModels)
+#    KF6::ConfigWidgets
+#    KF6::CoreAddons
+#    KF6::ItemModels)
 
 #install(TARGETS msm_keyboard DESTINATION ${PLUGIN_INSTALL_DIR})
 #install(FILES msm_keyboard.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -47,16 +47,16 @@ add_library(msm_page_keyboard STATIC ${KEYBOARD_PAGE_SRCS})
 target_compile_definitions(msm_page_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_keyboard
     msm
-    Qt5::DBus
-    KF5::ItemModels)
+    Qt6::DBus
+    KF6::ItemModels)
 
 # Auth Helper
 add_executable(msm_keyboard_authhelper
     KeyboardAuthHelper.cpp
     SetKeyboardLayoutJob.cpp)
 target_link_libraries(msm_keyboard_authhelper
-    Qt5::DBus
-    KF5::Auth)
+    Qt6::DBus
+    KF6::AuthCore)
 
 install(TARGETS msm_keyboard_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_keyboard_authhelper org.manjaro.msm.keyboard root)

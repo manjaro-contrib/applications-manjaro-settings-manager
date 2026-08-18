@@ -18,7 +18,7 @@ set(LOCALE_SRCS
 set(LOCALE_UI
     ui/LocaleModule.ui
     ui/SelectLocalesDialog.ui)
-qt5_wrap_ui(LOCALE_SRCS ${LOCALE_UI})
+qt6_wrap_ui(LOCALE_SRCS ${LOCALE_UI})
 
 ## KCM Module
 #set(LOCALE_KCM_SRCS
@@ -28,10 +28,10 @@ qt5_wrap_ui(LOCALE_SRCS ${LOCALE_UI})
 #add_library(msm_locale MODULE ${LOCALE_KCM_SRCS})
 #target_compile_definitions(msm_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 #target_link_libraries(msm_locale
-#    Qt5::DBus
-#    KF5::ConfigWidgets
-#    KF5::CoreAddons
-#    KF5::ItemModels
+#    Qt6::DBus
+#    KF6::ConfigWidgets
+#    KF6::CoreAddons
+#    KF6::ItemModels
 #    icudata
 #    icuuc
 #    msm)
@@ -48,8 +48,8 @@ add_library(msm_page_locale STATIC ${LOCALE_PAGE_SRCS})
 target_compile_definitions(msm_page_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_locale
     msm
-    Qt5::DBus
-    KF5::ItemModels
+    Qt6::DBus
+    KF6::ItemModels
     icudata
     icuuc)
 
@@ -57,8 +57,8 @@ target_link_libraries(msm_page_locale
 add_executable(msm_locale_authhelper LocaleAuthHelper.cpp)
 target_link_libraries(msm_locale_authhelper
     msm
-    Qt5::DBus
-    KF5::Auth)
+    Qt6::DBus
+    KF6::AuthCore)
 
 install(TARGETS msm_locale_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_locale_authhelper org.manjaro.msm.locale root)

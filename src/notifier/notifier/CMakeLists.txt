@@ -16,13 +16,13 @@ set(NOTIFIER_SRCS
 
 set(NOTIFIER_RESOURCES
     notifier.qrc)
-QT5_ADD_RESOURCES (NOTIFIER_SRCS ${NOTIFIER_RESOURCES})
+QT6_ADD_RESOURCES (NOTIFIER_SRCS ${NOTIFIER_RESOURCES})
 
 add_executable(msm_notifier ${NOTIFIER_SRCS})
 target_compile_definitions(msm_notifier PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_notifier
     msm
-    Qt5::Widgets)
+    Qt6::Widgets)
 
 install(TARGETS msm_notifier DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES msm_notifier.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})

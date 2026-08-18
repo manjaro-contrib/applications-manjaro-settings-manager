@@ -34,20 +34,20 @@ set(LIBMSM_SRCS
 
 set(LIBMSM_UI
     NotifierSettingsDialog.ui)
-qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
+qt6_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 
 set(translations_qrc "translations.qrc")
 configure_file(${translations_qrc} ${translations_qrc} COPYONLY)
-qt5_add_translation(LIBMSM_QM ${LIBMSM_TS_GLOB})
+qt6_add_translation(LIBMSM_QM ${LIBMSM_TS_GLOB})
 
 set(LIBMSM_RESOURCES
     language_packages.qrc
     ${CMAKE_BINARY_DIR}/src/libmsm/${translations_qrc})
-qt5_add_resources(LIBMSM_SRCS ${LIBMSM_RESOURCES})
+qt6_add_resources(LIBMSM_SRCS ${LIBMSM_RESOURCES})
 
 add_library (msm STATIC ${LIBMSM_SRCS})
 target_link_libraries (msm
-    Qt5::Core
-    Qt5::Widgets
-    KF5::Auth)
+    Qt6::Core
+    Qt6::Widgets
+    KF6::AuthCore)
 target_include_directories (msm PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

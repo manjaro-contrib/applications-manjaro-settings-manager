@@ -72,11 +72,11 @@ set(KERNEL_SRCS
 
 set(KERNEL_UI
     ui/PageKernel.ui)
-qt5_wrap_ui(KERNEL_SRCS ${KERNEL_UI})
+qt6_wrap_ui(KERNEL_SRCS ${KERNEL_UI})
 
 set(KERNEL_RESOURCES
     kernel.qrc)
-QT5_ADD_RESOURCES (KERNEL_SRCS ${KERNEL_RESOURCES})
+QT6_ADD_RESOURCES (KERNEL_SRCS ${KERNEL_RESOURCES})
 
 # KCM Module
 set(KERNEL_KCM_SRCS
@@ -86,8 +86,9 @@ add_library(msm_kernel MODULE ${KERNEL_KCM_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
     msm
-    KF5::ConfigWidgets
-    KF5::CoreAddons)
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::KCMUtils)
 
 install(TARGETS msm_kernel DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_kernel.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -105,7 +106,7 @@ target_link_libraries(msm_page_kernel
 # Auth Helper
 add_executable(msm_kernel_authhelper KernelAuthHelper.cpp)
 target_link_libraries(msm_kernel_authhelper
-    KF5::Auth)
+    KF6::AuthCore)
 
 install(TARGETS msm_kernel_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_kernel_authhelper org.manjaro.msm.kernel root)

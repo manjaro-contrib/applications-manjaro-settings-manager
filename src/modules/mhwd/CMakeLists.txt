@@ -22,11 +22,11 @@ set(MHWD_SRCS
 
 set(MHWD_UI
     ui/PageMhwd.ui)
-qt5_wrap_ui(MHWD_SRCS ${MHWD_UI})
+qt6_wrap_ui(MHWD_SRCS ${MHWD_UI})
 
 set(MHWD_RESOURCES
     mhwd.qrc)
-QT5_ADD_RESOURCES (MHWD_SRCS ${MHWD_RESOURCES})
+QT6_ADD_RESOURCES (MHWD_SRCS ${MHWD_RESOURCES})
 
 # KCM Module
 set(MHWD_KCM_SRCS
@@ -36,9 +36,10 @@ add_library(msm_mhwd MODULE ${MHWD_KCM_SRCS})
 target_compile_definitions(msm_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_mhwd
     msm
-    Qt5::Widgets
-    KF5::ConfigWidgets
-    KF5::CoreAddons
+    Qt6::Widgets
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::KCMUtils
     hd)
 
 install(TARGETS msm_mhwd DESTINATION ${PLUGIN_INSTALL_DIR})
@@ -52,13 +53,13 @@ add_library(msm_page_mhwd STATIC ${MHWD_PAGE_SRCS})
 target_compile_definitions(msm_page_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_mhwd
     msm
-    Qt5::Widgets
+    Qt6::Widgets
     hd)
 
 # Auth Helper
 add_executable(msm_mhwd_authhelper MhwdAuthHelper.cpp)
 target_link_libraries(msm_mhwd_authhelper
-    KF5::Auth)
+    KF6::AuthCore)
 
 install(TARGETS msm_mhwd_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_mhwd_authhelper org.manjaro.msm.mhwd root)

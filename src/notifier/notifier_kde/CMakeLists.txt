@@ -16,14 +16,15 @@ set(NOTIFIER_KDE_SRCS
 
 set(NOTIFIER_KDE_RESOURCES
     notifier.qrc)
-QT5_ADD_RESOURCES (NOTIFIER_KDE_SRCS ${NOTIFIER_KDE_RESOURCES})
+QT6_ADD_RESOURCES (NOTIFIER_KDE_SRCS ${NOTIFIER_KDE_RESOURCES})
 
 add_executable(msm_kde_notifier ${NOTIFIER_KDE_SRCS})
 target_compile_definitions(msm_kde_notifier PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kde_notifier
     msm
-    Qt5::Widgets
-    KF5::Notifications)
+    Qt6::Widgets
+    KF6::Notifications
+    KF6::StatusNotifierItem)
 
 install(TARGETS msm_kde_notifier DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES msm_kde_notifier.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})

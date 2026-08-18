@@ -1,9 +1,9 @@
+cmake_minimum_required(VERSION 3.20)
+
 project(manjaro-settings-manager)
 SET(PROJECT_VERSION "0.5.8")
-
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-set(QT_MIN_VERSION "5.4.0")
-set(KF5_MIN_VERSION "5.31")
+set(QT_MIN_VERSION "6.4.0")
+set(KF_MIN_VERSION "6.28")
 find_package(ECM 1.4.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${PROJECT_SOURCE_DIR})
 
@@ -17,18 +17,19 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Gui
     Widgets
     DBus
     LinguistTools)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Auth
     ConfigWidgets
     ItemModels
     Notifications
+    StatusNotifierItem
     KCMUtils)
 find_package(ICU REQUIRED)
 

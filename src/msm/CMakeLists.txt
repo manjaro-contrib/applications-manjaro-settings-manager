@@ -13,11 +13,11 @@ set(MSM_SRCS
 
 set(MSM_UI
     MsmWindow.ui)
-qt5_wrap_ui(MSM_SRCS ${MSM_UI})
+qt6_wrap_ui(MSM_SRCS ${MSM_UI})
 
 set(MSM_RESOURCES
     msm.qrc)
-QT5_ADD_RESOURCES (MSM_SRCS ${MSM_RESOURCES})
+QT6_ADD_RESOURCES (MSM_SRCS ${MSM_RESOURCES})
 
 add_executable(msm_bin ${MSM_SRCS})
 SET_TARGET_PROPERTIES(msm_bin
@@ -34,8 +34,8 @@ target_link_libraries(msm_bin
     msm_page_timedate
     msm_page_users
     msm
-    Qt5::Core
-    Qt5::Widgets)
+    Qt6::Core
+    Qt6::Widgets)
 
 install(TARGETS msm_bin
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
