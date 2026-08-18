@@ -49,7 +49,12 @@ SetKeyboardLayoutJob::findLegacyKeymap() const
     QString name;
 
     QFile file( ":/kbd-model-map" );
-    file.open( QIODevice::ReadOnly | QIODevice::Text );
+
+    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        qDebug() << "Cannot open 'kbs-model-map' resource";
+        return "";
+    }
+
     QTextStream stream( &file );
     while ( !stream.atEnd() )
     {
@@ -126,7 +131,10 @@ SetKeyboardLayoutJob::writeVConsoleData( const QString& vconsoleConfPath ) const
     QFile file( vconsoleConfPath );
     if ( file.exists() )
     {
-        file.open( QIODevice::ReadOnly | QIODevice::Text );
+        if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+            return false;
+        }
+
         QTextStream stream( &file );
         while ( !stream.atEnd() )
             existingLines << stream.readLine();
@@ -136,7 +144,9 @@ SetKeyboardLayoutJob::writeVConsoleData( const QString& vconsoleConfPath ) const
     }
 
     // Write out the existing lines and replace the KEYMAP= line
-    file.open( QIODevice::WriteOnly | QIODevice::Text );
+    if ( !file.open( QIODevice::WriteOnly | QIODevice::Text ) ) {
+        return false;
+    }
     QTextStream stream( &file );
     bool found = false;
     foreach ( const QString& existingLine, existingLines )
@@ -163,7 +173,11 @@ bool
 SetKeyboardLayoutJob::writeX11Data( const QString& keyboardConfPath ) const
 {
     QFile file( keyboardConfPath );
-    file.open( QIODevice::WriteOnly | QIODevice::Text );
+
+    if ( !file.open( QIODevice::WriteOnly | QIODevice::Text ) ) {
+        return false;
+    }
+
     QTextStream stream( &file );
 
     stream << "Section \"InputClass\"\n"

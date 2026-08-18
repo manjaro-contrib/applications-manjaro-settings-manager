@@ -41,7 +41,11 @@ LanguagePackages::languagePackages()
 
     QFile file;
     file.setFileName( ":/language_packages.json" );
-    file.open( QIODevice::ReadOnly | QIODevice::Text );
+    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        qDebug() << "Cannot open 'language_packages.json' resource";
+        return QList<LanguagePackagesItem>();
+
+    }
     QJsonDocument jsonDocument = QJsonDocument::fromJson( file.readAll() );
     file.close();
 
