@@ -19,6 +19,8 @@
 
 #include "KernelListViewDelegate.h"
 
+#include <QFile>
+
 #include <QtWidgets/QApplication>
 
 KernelListViewDelegate::KernelListViewDelegate( QObject* parent ) :
