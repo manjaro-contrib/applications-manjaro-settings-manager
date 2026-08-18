@@ -20,7 +20,8 @@
 #ifndef KERNELAUTHHELPER_H
 #define KERNELAUTHHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
 
 using namespace KAuth;
 

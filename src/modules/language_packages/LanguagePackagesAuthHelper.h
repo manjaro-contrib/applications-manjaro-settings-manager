@@ -20,7 +20,8 @@
 #ifndef LANGUAGEPACKAGESAUTHHELPER_H
 #define LANGUAGEPACKAGESAUTHHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
 
 using namespace KAuth;
 

@@ -20,7 +20,7 @@
 #ifndef ACTIONDIALOG_H
 #define ACTIONDIALOG_H
 
-#include <KAuth/KAuthAction>
+#include <KAuth/Action>
 
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>

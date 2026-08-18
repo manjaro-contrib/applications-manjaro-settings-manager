@@ -20,8 +20,8 @@
 #include "AccountTypeDialog.h"
 #include "ui_AccountTypeDialog.h"
 
-#include <KAuth>
-#include <KAuthAction>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>

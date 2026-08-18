@@ -20,7 +20,8 @@
 #ifndef LOCALEAUTHHELPER_H
 #define LOCALEAUTHHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
 
 using namespace KAuth;
 

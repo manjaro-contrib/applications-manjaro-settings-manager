@@ -27,7 +27,8 @@
 #include "ListWidget.h"
 #include "PreviewFileDialog.h"
 
-#include <KAuth>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QtWidgets/QMessageBox>
 

@@ -20,7 +20,7 @@
 
 #include "ActionDialog.h"
 
-#include <KAuth/KAuthExecuteJob>
+#include <KAuth/ExecuteJob>
 
 #include <QtCore/QRegularExpression>
 #include <QtWidgets/QPushButton>

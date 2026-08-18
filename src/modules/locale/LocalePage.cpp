@@ -24,8 +24,8 @@
 #include "LanguageCommon.h"
 
 #include <limits>
-#include <KAuth>
-#include <KAuthAction>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>

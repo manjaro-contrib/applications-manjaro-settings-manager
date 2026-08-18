@@ -20,7 +20,8 @@
 #ifndef KEYBOARDAUTHHELPER_H
 #define KEYBOARDAUTHHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
 
 using namespace KAuth;
 

@@ -20,7 +20,8 @@
 #ifndef USERSAUTHHELPER_H
 #define USERSAUTHHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
 
 using namespace KAuth;
 

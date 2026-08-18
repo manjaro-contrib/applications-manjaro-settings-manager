@@ -20,8 +20,8 @@
 #include "KeyboardModel.h"
 #include "KeyboardItem.h"
 
-#include <KAuth>
-#include <KAuthAction>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>

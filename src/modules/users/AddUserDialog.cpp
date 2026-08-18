@@ -20,8 +20,8 @@
 #include "AddUserDialog.h"
 #include "ui_AddUserDialog.h"
 
-#include <KAuth>
-#include <KAuthAction>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QDebug>
 

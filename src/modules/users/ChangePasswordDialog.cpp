@@ -20,8 +20,8 @@
 #include "ChangePasswordDialog.h"
 #include "ui_ChangePasswordDialog.h"
 
-#include <KAuth>
-#include <KAuthAction>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 
 #include <QDebug>
 
