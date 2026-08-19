@@ -174,7 +174,7 @@ KeyboardPage::load()
 void
 KeyboardPage::setLayoutsListViewIndex( const QString& layout )
 {
-    QModelIndexList layoutIndexList = m_keyboardProxyModel->match( ui->layoutsListView->rootIndex().child( 0,0 ),
+    QModelIndexList layoutIndexList = m_keyboardProxyModel->match( ui->layoutsListView->model()->index( 0, 0, ui->layoutsListView->rootIndex() ),
                                       KeyboardModel::KeyRole,
                                       layout,
                                       -1,
@@ -214,7 +214,7 @@ KeyboardPage::setVariantsListViewIndex( const QString& variant )
 void
 KeyboardPage::setModelComboBoxIndex( const QString& model )
 {
-    QModelIndexList modelIndexList = m_keyboardProxyModel->match( ui->modelComboBox->rootModelIndex().child( 0,0 ),
+    QModelIndexList modelIndexList = m_keyboardProxyModel->match( ui->modelComboBox->model()->index(0, 0, ui->modelComboBox->rootModelIndex() ),
                                      KeyboardModel::KeyRole,
                                      model,
                                      -1,

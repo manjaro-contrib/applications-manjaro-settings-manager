@@ -209,7 +209,8 @@ SupportedLocalesModel::init( SupportedLocalesItem* parent )
         }
 
         // Search if we already added this country to this language
-        QModelIndexList countryIndexList = match( languageIndex.child( 0,0 ),
+        // FIXME(lupine): check this change
+        QModelIndexList countryIndexList = match( index( 0, 0, languageIndex ),
                                            KeyRole,
                                            country,
                                            -1,
