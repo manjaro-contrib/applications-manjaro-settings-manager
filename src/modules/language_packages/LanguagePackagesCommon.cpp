@@ -156,12 +156,12 @@ LanguagePackagesCommon::newParentTreeWidgetItem( Ui::PageLanguagePackages* ui, Q
 {
     QTreeWidgetItem* item = new QTreeWidgetItem( parent );
     ui->treeWidgetAvailable->addTopLevelItem( item );
-    ui->treeWidgetAvailable->setFirstItemColumnSpanned( item, true );
+    item->setFirstColumnSpanned( true );
     item->setText( 0, tr( "Global language packages" ) );
 
     QFont font;
     font.setBold( true );
-    font.setWeight( 75 );
+    font.setWeight( QFont::Bold );
     item->setFont( 0, font );
 
     item->setSizeHint( 0, QSize( 0, 24 ) );
