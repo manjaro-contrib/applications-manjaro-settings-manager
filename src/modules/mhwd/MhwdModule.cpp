@@ -24,15 +24,15 @@
 #include "ui_PageMhwd.h"
 #include "libmhwd/mhwd.h"
 
-#include <KAboutData>
 #include <KPluginFactory>
 
 #include <QtCore/QTranslator>
 
 #include <QtDebug>
 
-K_PLUGIN_FACTORY( MsmMhwdFactory,
-                  registerPlugin<MhwdModule>(); )
+K_PLUGIN_FACTORY_WITH_JSON( MsmMhwdFactory, 
+                            "metadata.json",
+                            registerPlugin<MhwdModule>(); )
 
 MhwdModule::MhwdModule( QObject* parent, const KPluginMetaData &data ) :
     KCModule( parent, data ),
@@ -46,16 +46,6 @@ MhwdModule::MhwdModule( QObject* parent, const KPluginMetaData &data ) :
         qDebug() << "Cannot load translations";
     }
 
-    KAboutData* aboutData = new KAboutData( MhwdCommon::getName(),
-                                            MhwdCommon::getTitle(),
-                                            PROJECT_VERSION,
-                                            MhwdCommon::getDescription(),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2026 Manjaro Settings Manager developers" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          QStringLiteral( "ramon@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
-    setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
     ui->setupUi( this->widget() );

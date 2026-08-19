@@ -1,0 +1,19 @@
+{
+  "KPlugin": {
+    "Id": "msm_language_packages",
+    "Name": "Language Packages",
+    "License": "GPL3",
+    "Description": "Detection and installation of language packages",
+    "Authors": [
+      {
+        "Name": "Ramon Buldó",
+        "EmailAddress": "ramon@manjaro.org"
+      },
+      {
+        "Name": "Roland Singer",
+        "EmailAddress": "roland@manjaro.org"
+      }
+    ],
+    "BugReportURL": "https://bugs.manjaro.org"
+  }
+}

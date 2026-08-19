@@ -23,14 +23,14 @@
 #include "MsmCommon.h"
 #include "ui_PageLanguagePackages.h"
 
-#include <KAboutData>
 #include <KPluginFactory>
 
 #include <QtCore/QDebug>
 #include <QtCore/QTranslator>
 
-K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
-                  registerPlugin<LanguagePackagesModule>(); )
+K_PLUGIN_FACTORY_WITH_JSON( MsmLanguagePackagesFactory,
+                            "metadata.json",
+                            registerPlugin<LanguagePackagesModule>(); )
 
 LanguagePackagesModule::LanguagePackagesModule( QObject* parent, const KPluginMetaData &data ) :
     KCModule( parent, data ),
@@ -45,18 +45,6 @@ LanguagePackagesModule::LanguagePackagesModule( QObject* parent, const KPluginMe
         qDebug() << "Cannot load translations";
     }
 
-    KAboutData* aboutData = new KAboutData( LanguagePackagesCommon::getName(),
-                                            LanguagePackagesCommon::getTitle(),
-                                            PROJECT_VERSION,
-                                            LanguagePackagesCommon::getDescription(),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2026 Manjaro Settings Manager developers" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          QStringLiteral( "rbuldo@gmail.com" ) );
-    aboutData->addAuthor( "Roland Singer",
-                          QStringLiteral( "roland@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
-    setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
     ui->setupUi( this->widget() );

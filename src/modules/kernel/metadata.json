@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "msm_kernel",
+    "Name": "Kernel",
+    "License": "GPL3",
+    "Description": "Add and remove manjaro kernels",
+    "Authors": [
+      {
+        "Name": "Ramon Buldó",
+        "EmailAddress": "ramon@manjaro.org"
+      }
+    ],
+    "BugReportURL": "https://bugs.manjaro.org"
+  }
+}

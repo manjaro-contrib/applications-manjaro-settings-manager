@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "msm_mhwd",
+    "Name": "Hardware Configuration",
+    "License": "GPL3",
+    "Description": "Manjaro Hardware Detection graphical user interface",
+    "Authors": [
+      {
+        "Name": "Ramon Buldó",
+        "EmailAddress": "ramon@manjaro.org"
+      }
+    ],
+    "BugReportURL": "https://bugs.manjaro.org"
+  }
+}
