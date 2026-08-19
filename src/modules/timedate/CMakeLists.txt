@@ -79,7 +79,7 @@ QT6_ADD_RESOURCES (TIMEDATE_SRCS ${TIMEDATE_RESOURCES})
 #    KF6::ConfigWidgets)
 
 #install(TARGETS msm_timedate DESTINATION ${PLUGIN_INSTALL_DIR})
-#install(FILES msm_timedate.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+#install(FILES msm_timedate.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 # MSM Page
 set(TIMEDATE_PAGE_SRCS

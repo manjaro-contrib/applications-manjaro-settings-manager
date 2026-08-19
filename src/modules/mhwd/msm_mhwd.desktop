@@ -2,10 +2,9 @@
 [Desktop Entry]
 Type=Service
 Icon=audio-card
-Exec=kcmshell5 msm_mhwd
+Exec=kcmshell6 msm_mhwd
 
 X-KDE-Library=msm_mhwd
-X-KDE-ServiceTypes=KCModule
 X-KDE-System-Settings-Parent-Category=manjaro
 X-KDE-ParentApp=kcontrol
 X-KDE-PluginKeyword=msm_mhwd

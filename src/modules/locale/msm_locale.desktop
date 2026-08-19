@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-desktop-locale
-Exec=kcmshell5 msm_locale
+Exec=kcmshell6 msm_locale
 
 X-KDE-Library=msm_locale
 X-KDE-ServiceTypes=KCModule

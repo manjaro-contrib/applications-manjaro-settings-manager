@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-desktop-keyboard
-Exec=kcmshell5 msm_keyboard
+Exec=kcmshell6 msm_keyboard
 
 X-KDE-Library=msm_keyboard
 X-KDE-ServiceTypes=KCModule

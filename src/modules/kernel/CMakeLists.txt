@@ -91,7 +91,7 @@ target_link_libraries(msm_kernel
     KF6::KCMUtils)
 
 install(TARGETS msm_kernel DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES msm_kernel.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES msm_kernel.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 # MSM Page
 set(KERNEL_PAGE_SRCS

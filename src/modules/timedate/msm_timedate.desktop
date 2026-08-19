@@ -1,10 +1,9 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-system-time
-Exec=kcmshell5 msm_timedate
+Exec=kcmshell6 msm_timedate
 
 X-KDE-Library=msm_timedate
-X-KDE-ServiceTypes=KCModule
 X-KDE-System-Settings-Parent-Category=manjaro
 X-KDE-ParentApp=kcontrol
 X-KDE-PluginKeyword=msm_timedate

@@ -43,7 +43,7 @@ target_link_libraries(msm_mhwd
     hd)
 
 install(TARGETS msm_mhwd DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES msm_mhwd.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES msm_mhwd.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 # MSM PAGE
 set(MHWD_PAGE_SRCS

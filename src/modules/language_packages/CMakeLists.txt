@@ -29,7 +29,7 @@ target_link_libraries(msm_language_packages
     KF6::KCMUtils)
 
 install(TARGETS msm_language_packages DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES msm_language_packages.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES msm_language_packages.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 # MSM Page
 set(LANGUAGE_PACKAGES_PAGE_SRCS

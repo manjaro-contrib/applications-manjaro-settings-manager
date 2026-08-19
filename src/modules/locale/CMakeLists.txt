@@ -37,7 +37,7 @@ qt6_wrap_ui(LOCALE_SRCS ${LOCALE_UI})
 #    msm)
 
 #install(TARGETS msm_locale DESTINATION ${PLUGIN_INSTALL_DIR})
-#install(FILES msm_locale.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+#install(FILES msm_locale.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 # MSM PAGE
 set(LOCALE_PAGE_SRCS

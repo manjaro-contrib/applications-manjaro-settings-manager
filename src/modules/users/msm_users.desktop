@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-desktop-user
-Exec=kcmshell5 msm_users
+Exec=kcmshell6 msm_users
 
 X-KDE-Library=msm_users
 X-KDE-ServiceTypes=KCModule
