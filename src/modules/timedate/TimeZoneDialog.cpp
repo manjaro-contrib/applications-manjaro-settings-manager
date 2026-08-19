@@ -32,8 +32,7 @@ TimeZoneDialog::TimeZoneDialog( QWidget* parent ) :
     ui->timeZoneLayout->addWidget( m_timeZoneWidget );
     ui->timeZoneLayout->addStretch();
 
-    connect( ui->regionComboBox,
-             static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
+    connect( ui->regionComboBox, &QComboBox::currentTextChanged,
              [this]( const QString& current )
     {
         QHash< QString, QList< LocaleGlobal::Location > > regions = LocaleGlobal::getLocations();
@@ -52,11 +51,10 @@ TimeZoneDialog::TimeZoneDialog( QWidget* parent ) :
 
         ui->zoneComboBox->blockSignals( false );
 
-        ui->zoneComboBox->currentIndexChanged( ui->zoneComboBox->currentText() );
+        ui->zoneComboBox->currentIndexChanged( ui->zoneComboBox->currentIndex() );
     } );
 
-    connect( ui->zoneComboBox,
-             static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
+    connect( ui->zoneComboBox, &QComboBox::currentTextChanged,
              [this]( const QString& current )
     {
         if ( !m_blockTimeZoneWidgetSet )
@@ -112,7 +110,7 @@ TimeZoneDialog::init( const QString& initialRegion, const QString& initialZone )
     ui->regionComboBox->blockSignals( false );
     ui->zoneComboBox->blockSignals( false );
 
-    ui->regionComboBox->currentIndexChanged( ui->regionComboBox->currentText() );
+    ui->regionComboBox->currentIndexChanged( ui->regionComboBox->currentIndex() );
 
     // Default location
     auto containsLocation = []( const QList< LocaleGlobal::Location >& locations,
