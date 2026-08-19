@@ -58,4 +58,4 @@ It will also show up the new kcm modules in kde's systemsettings or issuing the 
 * Wiki           https://wiki.manjaro.org/
 * Mailing List   https://lists.manjaro.org/mailman/listinfo
 * Download       https://manjaro.org/get-manjaro/
-* IRC            #manjaro (www.freenode.com)
+* IRC            #manjaro (libera.chat)
