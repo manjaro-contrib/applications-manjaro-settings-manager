@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(manjaro-settings-manager)
-SET(PROJECT_VERSION "0.5.8")
+SET(PROJECT_VERSION "0.6.0")
 set(QT_MIN_VERSION "6.4.0")
 set(KF_MIN_VERSION "6.28")
 find_package(ECM 5.38 REQUIRED NO_MODULE)
