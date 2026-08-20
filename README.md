@@ -14,20 +14,13 @@ Manjaro Settings Manager is under active development.
 
 ### BUILD INSTRUCTIONS
 
-    mkdir build  
-    cd build  
-    cmake ../ \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=/usr \
-        -DLIB_INSTALL_DIR=lib \
-        -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-        -DSYSCONF_INSTALL_DIR=/etc
-    make
-    make install  
-  
-You can also use the provided PKGBUILD to compile and install it.
-   
-    makepkg -si
+```
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ..
+cmake --build .
+cmake --install .
+```
 
 
 ### DEPENDENCIES
@@ -46,10 +39,10 @@ You can also use the provided PKGBUILD to compile and install it.
 
 ### EXECUTION
 
-Now the build is complete and you can run it using `msm` command in terminal.
+Now the build is complete and you can run it using `manjaro-settings-manager` command in terminal.
 
 It will also show up the new kcm modules in kde's systemsettings or issuing the command:
-`kcmshell6 msm_{kernel,keyboard,language_packages,locale,mhwd,notifications,timedate,users}`
+`kcmshell6 msm_{kernel,language_packages,mhwd}`
 
 
 ### RESOURCES
