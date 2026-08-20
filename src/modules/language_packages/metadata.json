@@ -1,6 +1,5 @@
 {
   "KPlugin": {
-    "Id": "msm_language_packages",
     "Name": "Language Packages",
     "License": "GPL3",
     "Description": "Detection and installation of language packages",

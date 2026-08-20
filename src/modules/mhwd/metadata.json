@@ -1,6 +1,5 @@
 {
   "KPlugin": {
-    "Id": "msm_mhwd",
     "Name": "Hardware Configuration",
     "License": "GPL3",
     "Description": "Manjaro Hardware Detection graphical user interface",

@@ -1,6 +1,5 @@
 {
   "KPlugin": {
-    "Id": "msm_kernel",
     "Name": "Kernel",
     "License": "GPL3",
     "Description": "Add and remove manjaro kernels",
